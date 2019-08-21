@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1,maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/blog_detail.css">
+    <title>博客详情</title>
+</head>
+<body>
+
+<!--头部-->
+<header>
+    <div class="title">赢足100</div>
+    <div class="login">登录</div>
+    <div class="mine" onclick="location.href='person_info.html'">个人中心</div>
+</header>
+
+<!--内容-->
+<div class="main">
+
+    <div class="title">
+        <div>
+            <img src="img/vip_p.png" alt="">
+        </div>
+        <div>NBA</div>
+        <div>
+            <button>关注博客</button>
+        </div>
+    </div>
+
+    <div class="time_info">
+        <div>发布时间：2019/08/05 23:56:12</div>
+        <div>查看数：7899</div>
+    </div>
+
+    <!--富文本框-->
+    <div class="rice_content">
+        <p style="line-height: 0.7rem;text-indent: 0.8rem;padding-bottom: 0.5rem;">7月15日至16日，习近平来到壮丽北疆，就经济社会发展、生态文明建设和开展“不忘初心、牢记使命”主题教育情况进行考察调研。</p>
+        <p style="line-height: 0.7rem;text-indent: 0.8rem;padding-bottom: 0.5rem;">正值第一批“不忘初心、牢记使命”主题教育深入开展的关键时刻，总书记走进内蒙古自治区自然资源厅，深询问、细指导，深入一线抓落实。</p>
+        <p style="line-height: 0.7rem;text-indent: 0.8rem;padding-bottom: 0.5rem;">看到长条桌上摆放的一排相关学习材料和党组织活动记录，习近平强调：“我主要看实效，文件关键在执行。要强化法规制度执行，不能打折扣，防止文件发了之后，却都挂在墙上、堆在档案柜里。”</p>
+        <p style="line-height: 0.7rem;text-indent: 0.8rem;padding-bottom: 0.5rem;">主题教育如何取得实际效果，解决实质问题？习近平强调的抓“四个到位”至关重要：抓思想认识到位，把学习贯穿始终，不断深化对主题教育重大意义的认识，深化对党的初心和使命的认识，深化对党面临的风险考验的认识；抓检视问题到位，深入调查研究，把问题找到找准，把根源挖深，明确努力方向和改进措施；抓整改落实到位，对症下药，该完善的体制机制要完善起来，该堵塞的漏洞要堵塞好，该批评的要认真批评，该处理的要严肃处理；抓组织领导到位，主要领导同志要带头学习、带头调查研究、带头检视问题、带头整改落实，发挥表率作用。</p>
+    </div>
+
+    <div class="buy">
+        <div>18:00【多年业内PR积累转手福音】</div>
+        <div>查看所需D币：50币</div>
+        <button>点击购买查看</button>
+
+        <!--阻止滑动事件,不需要阻止滑动时不要加载这部分代码-->
+        <script>
+            // 屏幕滑动
+            document.querySelector('body').addEventListener('touchmove', function (event) {
+                event.preventDefault()
+            },{ passive: false });
+            // 鼠标滑动
+            document.querySelector('body').addEventListener('mousewheel', function (event) {
+                event.preventDefault()
+            },{ passive: false })
+        </script>
+    </div>
+
+</div>
+
+
+</body>
+</html>

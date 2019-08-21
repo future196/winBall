@@ -1,0 +1,51 @@
+@font-face {
+  font-family: w5;
+  src: url('../font/w5.ttf');
+}
+.main .content .form {
+  padding: 0.5rem;
+}
+.main .content .form .input {
+  display: flex;
+  margin: 0.3rem 0;
+  font-family: w5, '华文宋体';
+}
+.main .content .form .input .name {
+  width: 2rem;
+}
+.main .content .form .input .value {
+  flex: 1;
+}
+.main .content .form .input .value input,
+textarea {
+  width: 90%;
+  border: 1px solid #f2f2f2;
+  font-size: 0.4rem;
+  padding: 0.2rem 0.4rem;
+  font-family: w5, '华文宋体';
+}
+.main .content .form .input .value select {
+  width: 100%;
+  border: 1px solid #f2f2f2;
+  font-size: 0.4rem;
+  padding: 0.2rem 0.4rem;
+  font-family: w5, '华文宋体';
+}
+.main .content .form .button {
+  display: flex;
+  align-content: space-between;
+}
+.main .content .form .button button {
+  flex: 1;
+  background: #c262d5;
+  color: white;
+  border: 0;
+  border-radius: 0.05rem;
+  margin: 0.2rem;
+  line-height: 1rem;
+  font-size: 0.4rem;
+  font-family: w5, '华文宋体';
+}
+.main .content .form .button button:last-child {
+  background: #865cd4;
+}

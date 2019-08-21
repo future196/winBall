@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1,maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/person_push.css">
+    <link rel="stylesheet" href="css/mui-selector.css">
+    <script src="js/mui.js"></script>
+    <script src="js/mui.picker.js"></script>
+    <script src="js/mui.poppicker.js"></script>
+    <script src="js/mui.dtpicker.js"></script>
+    <title>发表咨询</title>
+</head>
+<body>
+
+<!--头部-->
+<header>
+    <div class="title" onclick="location.href='index.html'">赢足100</div>
+    <div class="login">NBA</div>
+    <div class="mine" onclick="location.href='mine_info.html'">个人中心</div>
+</header>
+
+<!--内容-->
+<div class="main">
+    <div class="nav">
+        <div onclick="location.href='person_info.html'" >个人资料</div>
+        <div onclick="location.href='person_push_record.html'" >发表记录</div>
+        <div onclick="location.href='person_push.html'" class="on">发表咨询</div>
+        <div onclick="location.href='person_ recharge_record.html'" >充值记录</div>
+        <div onclick="location.href='person_diary.html'" >流水记录</div>
+    </div>
+
+    <div class="content">
+        <div class="input">
+            <div class="name">咨询标题</div>
+            <div class="value">
+                <input type="text" placeholder="请输入咨询标题">
+            </div>
+        </div>
+        <div>
+            文章是否开放（勾选未免费开放：）
+            <input class="checkbox" type="checkbox">
+        </div>
+        <div class="input">
+            <div class="name">咨询内容</div>
+            <div class="value">
+                <textarea placeholder="请输入咨询内容" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="input">
+            <div class="name">发布时间</div>
+            <div class="value">
+                <span id="date_picker" onclick="datepicker(this)">请输入发布时间</span>
+            </div>
+        </div>
+        <div class="input">
+            <div class="name">点击率</div>
+            <div class="value">
+                <input type="text" placeholder="请输入点击率">
+            </div>
+        </div>
+
+        <div class="button">
+            <button>提交</button>
+        </div>
+
+    </div>
+
+    <script>
+
+        var year,month,day;
+        mui.init();
+
+        mui.ready(function(){
+            document.getElementById("date_picker").innerHTML = get_date();
+        });
+
+        // 时间选择器（日期）
+        document.querySelector('#date_picker').addEventListener('click', function () {
+            var obj = document.querySelector('#date_picker');
+            var dtpicker = new mui.DtPicker({
+                type: "date",//设置日历初始视图模式
+                beginDate: new Date(2000, 01, 01),//设置开始日期
+                endDate: new Date(year, month-1, day)//设置结束日期
+            });
+            dtpicker.setSelectedValue(get_date());
+            dtpicker.show(function(e) {
+                obj.innerHTML = e;
+                user_birth = e;
+            })
+        });
+
+        // 获取时间
+        var get_date = function (){
+            var date = new Date();
+            year =  date.getFullYear();
+            month = date.getMonth()+1;
+            month = month<10?'0'+month:month;
+            day = date.getDate();
+            day = day<10?'0'+day:day;
+            var current_date = year+"-"+month+"-"+day;
+            return current_date;
+        }
+
+    </script>
+
+</div>
+
+
+
+</body>
+</html>

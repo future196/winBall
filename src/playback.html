@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1,maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/playback.css">
+    <title>节目回放</title>
+</head>
+<body>
+
+<!--头部-->
+<header>
+    <div class="title">赢足100</div>
+    <div class="login" onclick="location.href='login.html'">登录</div>
+    <div class="mine" onclick="location.href='person_info.html'">个人中心</div>
+</header>
+
+<!--内容-->
+<div class="main">
+
+    <div class="play">
+        <div class="title">【FM102.广州汽车音乐】赢波有的分0716</div>
+        <div class="time">发布时间：2019/08/05 23:56:12</div>
+        <div class="play_face">
+            <img src="img/play_face.png" alt="">
+            <!--进度条-->
+            <div class="progress">
+                <div class="progress2">
+                    <div class="progressBar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="status">
+            <span id="startTime">00:00</span>
+            <div class="play_status">
+                <img  id="playBtn"  src="img/play.png"  isplay>
+            </div>
+            <span id="endTime">00:00</span>
+        </div>
+    </div>
+
+    <!--音频标签，隐藏-->
+    <audio src="test.mp3" id="audio" controls="controls" hidden="hidden"></audio>
+
+    <div class="playlist">
+        <div class="title">
+            <img src="img/play.png" alt="">
+            <span>节目回放列表</span>
+            <span></span>
+            <span onclick="location.href='play_list.html'">查看更多></span>
+        </div>
+        <div class="lists">
+            <div class="list">【FM102.广州汽车音乐】赢波有的分0716</div>
+            <div class="list">【FM102.广州汽车音乐】赢波有的分0716</div>
+            <div class="list">【FM102.广州汽车音乐】赢波有的分0716</div>
+            <div class="list">【FM102.广州汽车音乐】赢波有的分0716</div>
+            <div class="list">【FM102.广州汽车音乐】赢波有的分0716</div>
+            <div class="list">【FM102.广州汽车音乐】赢波有的分0716</div>
+        </div>
+    </div>
+
+    <script>
+
+        var audio, progress, startTime, endTime, currentProgress = 0, interval, isplaying = false;     // 初始化变量
+        audio = document.querySelector('#audio');
+        var freshProgress = function () {
+            progress = document.querySelector('.progress2');
+            startTime = audio.currentTime;
+            endTime = audio.duration;
+            currentProgress = startTime/endTime*100;
+            progress.style = 'width: '+ currentProgress +'%';
+            document.querySelector('#startTime').innerHTML = changeTime(parseInt(startTime));
+            document.querySelector('#endTime').innerHTML = changeTime(parseInt(endTime));
+            if(startTime >= endTime){
+                document.querySelector('#playBtn').click();
+            }
+        };
+
+        // 监听暂停播放事件
+        document.querySelector('#playBtn').addEventListener('click', function (event) {
+            if(this.hasAttribute('isplay')){
+                this.removeAttribute('isplay');
+                this.src="img/suspend.png";
+                freshProgress();
+                interval = setInterval(function () {
+                    freshProgress();
+                },10);
+                audio.play();
+                isplaying = true;
+            }else{
+                clearInterval(interval);
+                this.setAttribute('isplay', '');
+                this.src="img/play.png";
+                audio.pause();
+                isplaying = false;
+            }
+        });
+
+
+        // 获取到标签对象
+        var progressLabel = document.querySelector('.progressBar');
+        var objectWidth = document.querySelector('.progress').clientWidth;
+        var previousWith = 0;   // 上一次捕获移动时被拖动的位置
+        var startX;         // 开始移动时的位置
+
+        // 手指拖动函数
+        var touchMove = function (positionX) {
+            clearInterval(interval);
+            if(previousWith==0) previousWith = positionX;   // 为了防止第一次按下时没有上一个位置
+            var thisTimeWidth = positionX - previousWith;
+            var thisTimeWidthProgress = thisTimeWidth/objectWidth*100;
+            if(currentProgress<100 | thisTimeWidthProgress < 0){
+                currentProgress += thisTimeWidthProgress;
+                if(currentProgress>100) currentProgress = 100;
+            }
+            document.querySelector('.progress2').style = 'width: '+ parseInt(currentProgress) +'%';
+            previousWith = positionX;
+        };
+
+        // 手指松开函数
+        var touchUp = function () {
+            var currentTime = currentProgress/100*audio.duration;
+            audio.currentTime = currentTime;
+            freshProgress();
+            if(!isplaying) return false;
+            clearInterval(interval);
+            interval = setInterval(function () {
+                freshProgress();
+            },10);
+            audio.play();
+        };
+
+
+
+        /***************************************/
+        // 监听手指按下事件
+        progressLabel.ontouchstart = function (ev) {
+            previousWith = ev.touches[0].clientX;
+            audio.pause();
+        };
+
+        // 监听标签拖动事件
+        progressLabel.ontouchmove = function (ev) {
+            touchMove(ev.touches[0].clientX)
+        };
+
+        // 监听标签松开拖动事件
+        progressLabel.ontouchend = function (ev) {
+            touchUp();
+        };
+        /***************************************/
+
+
+        var ismousedown = false;
+
+        // 监听鼠标按下松开
+        progressLabel.onmousedown = function (e) {
+            ismousedown = true;
+            previousWith = e.clientX;
+            audio.pause();
+        };
+
+        // 监听鼠标处于上方移动事件
+        progressLabel.onmousemove = function (e) {
+            if(ismousedown){
+                touchMove(e.clientX)
+            }
+        };
+
+        // 监听鼠标按下松开
+        document.onmouseup = function (e) {
+            ismousedown = false;
+            touchUp();
+        };
+
+        // 点击进度条位置切换进度
+        document.querySelector('.progress').onclick = function (e) {
+            currentProgress = e.offsetX/objectWidth*100;
+            touchUp();
+        };
+
+
+        // 描述转换视频时间格式
+        var changeTime = function (time) {
+            var hours = 0;
+            var minutes = 0;
+            var second = 0;
+            var timeString;
+            if(time<=60){
+                timeString = '00:';
+                timeString+=time<10?'0'+time:time;
+            }
+            if(time > 60){
+                timeString = '';
+                var minute = parseInt(time/60);
+                var second = time%60;
+                timeString+=minute<10?'0'+minute:minute;
+                timeString+=':';
+                timeString+=second<10?'0'+second:second;
+            }
+            return timeString;
+        };
+
+    </script>
+
+
+</div>
+
+<!--脚部-->
+<footer>
+        <span onclick="location.href='index.html'">
+            <img src="img/vip.png" alt="">
+            <p>vip推介</p>
+        </span>
+    <span onclick="location.href='blog.html'">
+            <img src="img/home.png" alt="">
+            <p>博客推介</p>
+        </span>
+    <span onclick="location.href='playback.html'">
+            <img src="img/ago2.png" alt="">
+            <p style="color:#c262d5;">节目回放</p>
+        </span>
+    <span onclick="location.href='immediate.html'">
+            <img src="img/now.png" alt="">
+            <p>即时比分</p>
+        </span>
+    <span onclick="location.href='information.html'">
+            <img src="img/basketball.png" alt="">
+            <p>体育资讯</p>
+        </span>
+</footer>
+
+</body>
+</html>

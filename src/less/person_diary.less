@@ -1,0 +1,30 @@
+@font-face
+{
+  font-family: w5;
+  src: url('../font/w5.ttf');
+}
+
+@base: #c262d5;
+@grey: #f2f2f2;
+@max-width: 500px;
+@rem: 50px;
+@basefont: w5,'华文宋体';
+
+.main .content .row{
+  display: flex;
+  border-bottom: 1px solid @grey;
+  line-height: 1rem;
+  font-family: @basefont;
+}
+
+.main .content .row:first-child div{
+  font-size: 0.35rem;
+  font-weight: bold;
+
+}
+
+.main .content .row div{
+  font-size: 0.3rem;
+  flex: 1;
+  text-align: center;
+}

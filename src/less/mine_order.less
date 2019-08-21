@@ -1,0 +1,67 @@
+@font-face
+{
+  font-family: w5;
+  src: url('../font/w5.ttf');
+}
+
+@base: #c262d5;
+@grey: #f2f2f2;
+@max-width: 500px;
+@rem: 50px;
+@basefont: w5,'华文宋体';
+
+
+.main .content .selector{
+
+}
+
+.main .content .selector #selector2{
+  background: @base;
+  color: white;
+  display: flex;
+  border: 0;
+  border-radius: 0.1rem;
+  padding: 0.1rem;
+  width: 4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.main .content #selector2 img{
+  width: 0.4rem;
+  height: 0.4rem;
+}
+
+.main .content .row{
+  display: flex;
+  border-bottom: 1px solid @grey;
+  line-height: 1rem;
+  font-family: @basefont;
+}
+
+.main .content .row div{
+  font-size: 0.3rem;
+  flex: 1;
+  text-align: center;
+}
+
+.main .content .row:nth-child(2) div{
+  font-size: 0.35rem;
+  font-weight: bold;
+}
+
+.main .pager{
+  text-align: center;
+  margin: 0.5rem;
+}
+
+.main .pager button {
+  border: 1px solid lightgrey;
+  border-radius: 0;
+  background: white;
+  margin: 0.1rem;
+  line-height: 0.6rem;
+  padding: 0 0.3rem;
+}
+
+

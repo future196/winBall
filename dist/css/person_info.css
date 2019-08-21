@@ -1,0 +1,78 @@
+@font-face {
+  font-family: w5;
+  src: url('../font/w5.ttf');
+}
+.main .form {
+  padding: 0.3rem;
+}
+.main .form .input {
+  display: flex;
+  font-family: w5, '华文宋体';
+  padding: 0.2rem;
+}
+.main .form .input div:nth-child(1) {
+  width: 2rem;
+}
+.main .form .input .right {
+  flex: 1;
+}
+.main .form .input .right input {
+  font-family: w5, '华文宋体';
+  padding: 0.3rem;
+  border: 1px solid #f2f2f2;
+  border-radius: 0;
+  outline: none;
+  width: 90%;
+}
+.main .form .input .right textarea {
+  font-family: w5, '华文宋体';
+  padding: 0.3rem;
+  border: 1px solid #f2f2f2;
+  border-radius: 0;
+  outline: none;
+  width: 90%;
+}
+.main .form .input:nth-child(2) .right .face {
+  display: flex;
+  margin: 0;
+  width: auto;
+}
+.main .form .input:nth-child(2) .right .face div {
+  flex: 1;
+  margin-left: 0.3rem;
+  color: grey;
+  font-size: 0.3rem;
+}
+.main .form .input:nth-child(2) .right .face img {
+  width: 2rem;
+  height: 2rem;
+}
+.main .form .input:nth-child(2) .right .selector {
+  background: grey;
+  color: white;
+  line-height: 0.4rem;
+  padding: 0.1rem;
+  width: 2rem;
+  text-align: center;
+  font-size: 0.3rem;
+  margin: 0.2rem 0;
+}
+.main .form .input:nth-child(2) .right .selector img {
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-right: 0.1rem;
+  position: relative;
+  top: 0.05rem;
+}
+.main .form .button {
+  text-align: center;
+}
+.main .form button {
+  background: #c262d5;
+  color: white;
+  width: 8rem;
+  height: 1rem;
+  border: 0;
+  border-radius: 0.1rem;
+  margin: 0.5rem;
+}

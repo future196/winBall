@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1,maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/register.css">
+    <title>赢足 - 注册</title>
+</head>
+<body>
+
+<!--头部-->
+<header>
+    <div class="title">赢足100</div>
+    <div class="login">登录</div>
+    <div class="mine">个人中心</div>
+</header>
+
+<!--内容-->
+<div class="main">
+
+    <div class="title">会员注册</div>
+    <div class="form">
+        <div class="input">
+            <img src="img/user.png" alt="">
+            <input type="text" placeholder="邮箱/用户名">
+        </div>
+
+        <div class="input">
+            <img src="img/password.png" alt="">
+            <input type="text" placeholder="登录密码">
+        </div>
+
+        <div class="input">
+            <img src="img/password.png" alt="">
+            <input type="text" placeholder="确认密码">
+        </div>
+
+        <div class="input">
+            <img src="img/phone.png" alt="">
+            <input type="text" placeholder="手机号码">
+        </div>
+
+        <div class="input">
+            <img src="img/code.png" alt="">
+            <input type="text" placeholder="验证码">
+            <span class="code">获取验证码</span>
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox">
+            <span>同意《赢足100官网协议》</span>
+        </div>
+
+
+        <button class="button">会员注册</button>
+
+    </div>
+
+    <div class="tips">
+        <div>如你无法完成注册</div>
+        <div>可拨打客服热线：<span style="color: #c262d5;">440-9961-338</span></div>
+        <div>会有客服专员帮你进行注册</div>
+    </div>
+
+    <script>
+
+        var time = 62;
+
+        document.querySelector('.code').addEventListener('click', function () {
+            if(time == 62){
+                time--;
+                var interval = setInterval(function () {
+                    if(time <= 0){
+                        time = 62;
+                        document.querySelector('.code').innerHTML = '获取验证码';
+                        clearInterval(interval)
+                    }else{
+                        time--;
+                        document.querySelector('.code').innerHTML = time+' s';
+                    }
+                },1000)
+            }
+        })
+
+    </script>
+
+</div>
+
+
+
+</body>
+</html>

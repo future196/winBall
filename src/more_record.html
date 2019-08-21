@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1,maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/more_record.css">
+    <link rel="stylesheet" href="css/mui-selector.css">
+    <script src="js/mui.js"></script>
+    <script src="js/mui.picker.js"></script>
+    <script src="js/mui.poppicker.js"></script>
+    <title>博客推介</title>
+</head>
+<body>
+
+<!--头部-->
+<header>
+    <div class="title">赢足100</div>
+    <div class="login" onclick="location.href='login.html'">登录</div>
+    <div class="mine" onclick="location.href='person_info.html'">个人中心</div>
+</header>
+
+<!--内容-->
+<div class="main">
+    <div class="selector">
+        <button id="selector2">
+            <span id="selector">东南亚致胜宝典</span>
+            <img src="img/down.png" alt="">
+        </button>
+    </div>
+
+    <div class="block">
+        <div class="date">2019-09-21 12:12</div>
+        <div class="content">
+            <div class="list vs">
+                对阵：
+                <button>暂无</button>
+                <div>没公布 VS 没公布</div>
+            </div>
+            <div class="list info">
+                <div class="time">时间：</div>
+                <div class="score">时间：</div>
+            </div>
+            <div class="list recommend">
+                推介：
+                <div>单日</div>
+            </div>
+            <div class="list team">推介专家团队：东南亚致胜宝典</div>
+        </div>
+    </div>
+
+    <div class="block">
+        <div class="date">2019-09-21 12:12</div>
+        <div class="content">
+            <div class="list vs">
+                对阵：
+                <button>马来杯</button>
+                <div>吉打 VS 巴日拓</div>
+            </div>
+            <div class="list info">
+                <div class="time">时间：</div>
+                <div class="score">比分：13</div>
+            </div>
+            <div class="list recommend">
+                推介：
+                <div class="">吉打</div>
+            </div>
+            <div class="list team">推介专家团队：东南亚致胜宝典</div>
+            <img src="img/bingo.png" alt="">
+        </div>
+
+    </div>
+
+    <div id="grey"></div>
+
+
+
+    <script type="text/javascript">
+
+        mui.init();
+
+        var picker = new mui.PopPicker();
+        // 给选择器设置内容
+        picker.setData([
+            {value:'1',text:'东南亚致胜宝典'},
+            {value:'2',text:'东南亚致胜宝典'},
+            {value:'3',text:'东南亚致胜宝典'},
+            {value:'4',text:'东南亚致胜宝典'}
+        ]);
+
+        // 选择器(酒楼)
+        document.querySelector('#selector').addEventListener('click',function () {
+            picker.show(function (selectItems) {
+                document.querySelector('#selector').innerHTML = selectItems[0].text;
+            });
+            document.querySelector('#grey').setAttribute('class', 'grey');
+        });
+
+        // 监听点击取消事件
+        document.querySelector('.mui-poppicker-btn-cancel').addEventListener('click',function () {
+            document.querySelector('#grey').removeAttribute('class');
+        });
+
+        // 监听点击确认事件
+        document.querySelector('.mui-poppicker-btn-ok').addEventListener('click',function () {
+            document.querySelector('#grey').removeAttribute('class');
+        });
+
+        // 监听事件代触发
+        document.querySelector('#selector2').addEventListener('click', function () {
+            document.querySelector('#selector').click();
+        });
+
+
+
+    </script>
+
+
+</div>
+
+
+
+</body>
+</html>

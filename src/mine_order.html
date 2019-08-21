@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1,maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/mine_order.css">
+    <link rel="stylesheet" href="css/mui-selector.css">
+    <script src="js/mui.js"></script>
+    <script src="js/mui.picker.js"></script>
+    <script src="js/mui.poppicker.js"></script>
+    <title>订单管理</title>
+</head>
+<body>
+
+<!--头部-->
+<header>
+    <div class="title" onclick="location.href='index.html'">赢足100</div>
+    <div class="mine">个人中心</div>
+</header>
+
+<!--内容-->
+<div class="main">
+
+    <div class="mine_header">
+        <div class="name">您好！康师傅</div>
+        <div class="info">
+            <div>D币余额：100</div>
+            <div>数字ID：2568</div>
+            <div>积分：10000</div>
+        </div>
+    </div>
+
+    <div class="nav">
+        <div onclick="location.href='mine_order.html'"  class="on">订单管理</div>
+        <div onclick="location.href='mine_info.html'">基本设置</div>
+        <div onclick="location.href='mine_pay_help.html'" >支付帮助</div>
+        <div onclick="location.href='mine_help_center.html'" >帮助中心</div>
+    </div>
+
+    <div class="content">
+
+        <div class="selector">
+            <button id="selector2">
+                <span id="selector">推介订单服务</span>
+                <img src="img/down.png" alt="">
+            </button>
+        </div>
+
+        <div class="row">
+            <div>订单号</div>
+            <div>订单服务</div>
+            <div>价格</div>
+            <div>订购区域</div>
+            <div>类型</div>
+            <div>开始时间</div>
+        </div>
+
+        <div class="row">
+            <div>11112352</div>
+            <div>球赛</div>
+            <div>10元</div>
+            <div>广州</div>
+            <div>比赛</div>
+            <div>2019-08-17</div>
+        </div>
+        <div class="row">
+            <div>11112352</div>
+            <div>球赛</div>
+            <div>10元</div>
+            <div>广州</div>
+            <div>比赛</div>
+            <div>2019-08-17</div>
+        </div>
+        <div class="row">
+            <div>11112352</div>
+            <div>球赛</div>
+            <div>10元</div>
+            <div>广州</div>
+            <div>比赛</div>
+            <div>2019-08-17</div>
+        </div>
+        <div class="row">
+            <div>11112352</div>
+            <div>球赛</div>
+            <div>10元</div>
+            <div>广州</div>
+            <div>比赛</div>
+            <div>2019-08-17</div>
+        </div>
+
+        <div class="row">
+            <div>11112352</div>
+            <div>球赛</div>
+            <div>10元</div>
+            <div>广州</div>
+            <div>比赛</div>
+            <div>2019-08-17</div>
+        </div>
+
+    </div>
+
+    <div class="pager">
+        <button>上一页</button>
+        <button>1</button>
+        <button>下一页</button>
+    </div>
+
+    <div id="grey"></div>
+
+    <script type="text/javascript">
+
+        mui.init();
+
+        var picker = new mui.PopPicker();
+        // 给选择器设置内容
+        picker.setData([
+            {value:'1',text:'推介订单服务'},
+            {value:'2',text:'推介订单服务'},
+            {value:'3',text:'推介订单服务'},
+            {value:'4',text:'推介订单服务'}
+        ]);
+
+        // 选择器(酒楼)
+        document.querySelector('#selector').addEventListener('click',function () {
+            picker.show(function (selectItems) {
+                document.querySelector('#selector').innerHTML = selectItems[0].text;
+            });
+            document.querySelector('#grey').setAttribute('class', 'grey');
+        });
+
+        // 监听点击取消事件
+        document.querySelector('.mui-poppicker-btn-cancel').addEventListener('click',function () {
+            document.querySelector('#grey').removeAttribute('class');
+        });
+
+        // 监听点击确认事件
+        document.querySelector('.mui-poppicker-btn-ok').addEventListener('click',function () {
+            document.querySelector('#grey').removeAttribute('class');
+        });
+
+        // 监听事件代触发
+        document.querySelector('#selector2').addEventListener('click', function () {
+            document.querySelector('#selector').click();
+        });
+
+    </script>
+
+
+</div>
+
+
+
+</body>
+</html>

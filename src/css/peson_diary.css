@@ -1,0 +1,10 @@
+@font-face {
+  font-family: w5;
+  src: url('../font/w5.ttf');
+}
+.main .content .row {
+  display: flex;
+}
+.main .content .row:nth-child(n+2) {
+  font-size: 0.3rem;
+}

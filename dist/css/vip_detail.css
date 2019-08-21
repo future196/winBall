@@ -1,0 +1,72 @@
+@font-face {
+  font-family: w5;
+  src: url('../font/w5.ttf');
+}
+.main .title {
+  display: flex;
+  padding: 0.5rem;
+}
+.main .title div:first-child img {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.3rem;
+}
+.main .title div:last-child {
+  flex: 1;
+}
+.main .title div:last-child div {
+  line-height: 0.7rem;
+  font-family: w5, '华文宋体';
+}
+.main .title div:last-child div:first-child {
+  font-size: 0.35rem;
+  color: black;
+}
+.main .title div:last-child div:last-child {
+  font-size: 0.3rem;
+  color: grey;
+}
+.main .rich_content {
+  padding: 0.5rem;
+}
+.main .require .content {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  margin-left: -5rem;
+  width: 100%;
+  max-width: 500px;
+  z-index: 100;
+}
+.main .require .content .score {
+  display: flex;
+  background: #f1f1f1;
+  padding: 0.3rem 0.5rem;
+}
+.main .require .content .score div:first-child {
+  flex: 1;
+}
+.main .require .content .score div:last-child {
+  color: grey;
+  font-size: 0.3rem;
+}
+.main .require .content .buy {
+  text-align: center;
+  background: white;
+  padding: 0.3rem;
+}
+.main .require .content .buy button {
+  width: 8.5rem;
+  line-height: 1rem;
+  background: #c262d5;
+  color: white;
+  border: 0;
+  border-radius: 0;
+  margin: 0.2rem;
+}
+.main .require .content .buy button:nth-child(2) {
+  background: #865cd4;
+}
+.main .require .content .buy button:nth-child(3) {
+  background: #751a88;
+}

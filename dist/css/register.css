@@ -1,0 +1,83 @@
+@font-face {
+  font-family: w5;
+  src: url('../font/w5.ttf');
+}
+.main {
+  text-align: center;
+}
+.main .title {
+  text-align: center;
+  font-size: 0.5rem;
+  font-family: w5, '华文宋体';
+  margin: 1rem;
+  margin-top: 2rem;
+}
+.main .form .input {
+  display: flex;
+  width: 7rem;
+  border: 1px solid #f2f2f2;
+  padding: 0.1rem 0.5rem;
+  margin-bottom: 0.3rem;
+}
+.main .form .input img {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.3rem;
+}
+.main .form .input input {
+  flex: 1;
+  border: 0;
+  line-height: 0.8rem;
+  outline: none;
+  font-size: 0.4rem;
+  font-family: w5, '华文宋体';
+}
+.main .form .input .code {
+  color: #c262d5;
+}
+.main .form .button {
+  border: 0;
+  border-radius: 0;
+  background: #c262d5;
+  color: white;
+  width: 8rem;
+  height: 1.1rem;
+  font-size: 0.4rem;
+  font-family: w5, '华文宋体';
+  margin-top: 0.2rem;
+}
+.main .form .options {
+  display: flex;
+  width: 8rem;
+}
+.main .form .options div {
+  margin: 0.4rem;
+  font-family: w5, '华文宋体';
+  color: grey;
+}
+.main .form .options span {
+  flex: 1;
+}
+.main .tips {
+  position: fixed;
+  bottom: 0;
+  left: -50%;
+  margin-left: 5rem;
+  line-height: 0.6rem;
+  width: 100%;
+  max-width: 500px;
+  font-family: w5, '华文宋体';
+  margin-bottom: 0.5rem;
+}
+.main .form .checkbox {
+  color: grey;
+  text-align: center;
+  margin: 0.3rem;
+}
+.main .form .checkbox input {
+  width: 0.35rem;
+  height: 0.35rem;
+  position: relative;
+  top: 0.07rem;
+  outline: none;
+}

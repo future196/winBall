@@ -1,0 +1,49 @@
+@font-face {
+  font-family: w5;
+  src: url('../font/w5.ttf');
+}
+.main .block {
+  padding: 0.4rem;
+}
+.main .block .title {
+  display: flex;
+}
+.main .block .title div {
+  flex: 1;
+  border-left: 5px solid #c262d5;
+  font-size: 0.4rem;
+  padding-left: 0.1rem;
+}
+.main .block .title span {
+  color: grey;
+  font-size: 0.3rem;
+}
+.main .block .lists .list {
+  display: flex;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+.main .block .lists .list .left {
+  flex: 1;
+}
+.main .block .lists .list .left .title {
+  font-size: 0.35rem;
+  color: black;
+  font-family: w5, '华文宋体';
+}
+.main .block .lists .list .left .content {
+  padding-top: 0.1rem;
+  font-family: w5, '华文宋体';
+}
+.main .block .lists .list .left .content span {
+  font-size: 0.3rem;
+  color: grey;
+}
+.main .block .lists .list .left .content span img {
+  width: 0.3rem;
+  height: 0.3rem;
+}
+.main .block .lists .list .right img {
+  width: 0.5rem;
+  height: 0.5rem;
+}

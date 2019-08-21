@@ -1,0 +1,36 @@
+@font-face {
+  font-family: w5;
+  src: url('../font/w5.ttf');
+}
+.main .lists {
+  margin: 0 0.3rem;
+}
+.main .lists .list {
+  display: flex;
+  font-family: w5;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 0.2rem;
+}
+.main .lists .list .content {
+  flex: 1;
+}
+.main .lists .list .content .title {
+  color: black;
+  font-size: 0.4rem;
+  line-height: 0.7rem;
+}
+.main .lists .list .content .info {
+  color: grey;
+  font-size: 0.3rem;
+  line-height: 0.7rem;
+}
+.main .lists .list .content .info span {
+  padding-right: 0.5rem;
+}
+.main .lists .list .content .info span:last-child {
+  padding-right: 0;
+}
+.main .lists .list .right img {
+  width: 0.5rem;
+  height: 0.5rem;
+}

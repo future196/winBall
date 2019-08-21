@@ -1,0 +1,61 @@
+@font-face
+{
+  font-family: w5;
+  src: url('../font/w5.ttf');
+}
+
+@base: #c262d5;
+@grey: #f2f2f2;
+@max-width: 500px;
+@rem: 50px;
+@basefont: w5,'华文宋体';
+
+.main .content{
+  margin: 0.5rem;
+}
+
+.main .content .checkbox{
+  height: 0.5rem;
+  width: 0.5rem;
+  position: relative;
+  top: 0.15rem;
+}
+
+.main .content .input{
+  display: flex;
+  margin: 0.3rem 0;
+}
+
+.main .content .input .name{
+  width: 2rem;
+}
+
+.main .content .input .value{
+  flex: 1;
+  width: 90%;
+  border: 1px solid @grey;
+  font-size: 0.4rem;
+  padding: 0.2rem 0.4rem;
+}
+
+.main .content .input .value input,textarea{
+  width: 90%;
+  //border: 1px solid @grey;
+  font-size: 0.4rem;
+  border: 0;
+  padding: 0.2rem 0.4rem;
+}
+
+.main .content .button{
+  text-align: center;
+}
+
+.main .content button{
+  width: 8rem;
+  height: 1rem;
+  background: @base;
+  color: white;
+  border: 0;
+  border-radius: 0.1rem;
+  margin: 0.5rem;
+}
